@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bofuprevx7gfc"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_6hcjr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gcyvd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_75hvw"]
+
+[sub_resource type="Sky" id="Sky_1h0vo"]
+sky_material = SubResource("ProceduralSkyMaterial_75hvw")
+
+[sub_resource type="Environment" id="Environment_p1ry2"]
+background_mode = 2
+sky = SubResource("Sky_1h0vo")
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_6hcjr")
+
+[node name="RayCast3d" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -10, 0)
+
+[node name="Camera3d" type="Camera3D" parent="."]
+current = true
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_gcyvd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_p1ry2")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.110931, 0.993828, 0, -0.993828, 0.110931, 0, 3.42965, 0)
